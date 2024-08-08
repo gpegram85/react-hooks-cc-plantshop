@@ -26,9 +26,10 @@ function App() {
       body: JSON.stringify(newPlant)
     })
     .then(resp => {
-      if(!resp.ok) {
-        throw new Error("Error adding plant. " + resp.statusText)
-      } return resp.json()
+      // if(!resp.ok) {
+      //   throw new Error("Error adding plant. " + resp.statusText)
+      // } 
+      return resp.json()
     })
     .then((newPlantData) => {
       setPlants(prevPlants => [...prevPlants, newPlantData])
@@ -40,11 +41,15 @@ function App() {
   }
 
   const handleSearchInput = (query) => {
+    console.log("Search query:", query)
     if (query === "") {
       setPlants(initialPlants)
     } else {
-      setPlants(initialPlants.filter((plant) => plant.name.toLowerCase().includes(query.toLowerCase())
-      ))
+      const filteredPlants = initialPlants.filter(plant =>
+        plant.name.toLowerCase().includes(query.toLowerCase())
+      )
+      console.log("Filtered plants:", filteredPlants)
+      setPlants(filteredPlants);
     }
   }
 

@@ -11,8 +11,8 @@ function NewPlantForm({onPlantSubmit}) {
     e.preventDefault()
     const newPlant = {
       name: plantName,
-      price: plantPrice,
-      image: plantImage
+      image: plantImage,
+      price: plantPrice
     }
     onPlantSubmit(newPlant)
     setPlantName("")
