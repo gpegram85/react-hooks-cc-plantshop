@@ -1,15 +1,10 @@
-import React from "react";
-import { useState } from "react";
+import React from 'react';
 
-function Search({ onSearchInput }) {
-
-const [query, setQuery] = useState("")
-
-const handleSearchChange = (e) => {
-  const newQuery = e.target.value
-  setQuery(newQuery)
-  onSearchInput(newQuery)
-}
+function Search({ query, setQuery }) {
+  const handleSearchChange = (e) => {
+    setQuery(e.target.value);
+    // onSearchInput(e.target.value)
+  };
 
   return (
     <div className="searchbar">

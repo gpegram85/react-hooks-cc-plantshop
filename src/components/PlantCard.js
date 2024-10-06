@@ -1,27 +1,42 @@
-import React, { useState } from "react";
+import React, { useState } from 'react';
 
 function PlantCard({ plant, onDelete }) {
-
-  const {id, name, price, image} = plant
-  const [inStock, setInStock] = useState(true)
+  const { id, name, price, image } = plant;
+  const [inStock, setInStock] = useState(true);
 
   const handleClick = () => {
-    setInStock(!inStock)
-  }
+    setInStock(!inStock);
+  };
 
   const handleDelete = () => {
-    onDelete(id)
-  }
+    onDelete(id);
+  };
 
   return (
-    <li className="card" data-testid="plant-item">
-      <img src={image} alt={name} />
+    <li
+      className="card"
+      data-testid="plant-item"
+    >
+      <img
+        src={image}
+        alt={name}
+      />
       <h4>{name}</h4>
       <p>Price: {price}</p>
       {inStock ? (
         <>
-          <button className="primary" onClick={handleClick}>In Stock</button>
-          <button className="secondary" onClick={handleDelete}>Delete</button>
+          <button
+            className="primary"
+            onClick={handleClick}
+          >
+            In Stock
+          </button>
+          <button
+            className="secondary"
+            onClick={handleDelete}
+          >
+            Delete
+          </button>
         </>
       ) : (
         <button onClick={handleClick}>Out of Stock</button>

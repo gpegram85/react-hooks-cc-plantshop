@@ -1,5 +1,4 @@
-import { Body } from "node-fetch";
-import React, { useState } from "react";
+import { useState } from "react";
 
 function NewPlantForm({onPlantSubmit}) {
 
